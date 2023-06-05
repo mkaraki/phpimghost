@@ -78,16 +78,19 @@ switch ($format) {
     case 'webp':
     case null:
         quality_check($quality, 0, 100);
+        header('Content-Type: image/webp');
         imagewebp($image, null, intval($quality ?? 80));
         break;
 
     case 'png':
         quality_check($quality, 0, 9);
+        header('Content-Type: image/png');
         imagepng($image, null, intval($quality ?? 9));
         break;
 
     case 'jpeg':
         quality_check($quality, 0, 100);
+        header('Content-Type: image/jpeg');
         imagejpeg($image, null, intval($quality ?? 80));
         break;
 
